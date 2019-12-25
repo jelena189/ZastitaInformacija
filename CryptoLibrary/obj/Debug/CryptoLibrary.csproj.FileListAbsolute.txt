@@ -1,0 +1,6 @@
+C:\Users\Jelena\source\repos\ZIService\CryptoLibrary\bin\Debug\CryptoLibrary.dll
+C:\Users\Jelena\source\repos\ZIService\CryptoLibrary\bin\Debug\CryptoLibrary.pdb
+C:\Users\Jelena\source\repos\ZIService\CryptoLibrary\obj\Debug\CryptoLibrary.csprojAssemblyReference.cache
+C:\Users\Jelena\source\repos\ZIService\CryptoLibrary\obj\Debug\CryptoLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Jelena\source\repos\ZIService\CryptoLibrary\obj\Debug\CryptoLibrary.dll
+C:\Users\Jelena\source\repos\ZIService\CryptoLibrary\obj\Debug\CryptoLibrary.pdb

@@ -1,0 +1,13 @@
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\bin\Debug\ZIKlijent.exe.config
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\bin\Debug\ZIKlijent.exe
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\bin\Debug\ZIKlijent.pdb
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.csprojAssemblyReference.cache
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.Properties.Resources.resources
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.csproj.GenerateResource.cache
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.csproj.CoreCompileInputs.cache
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.exe
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.pdb
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\bin\Debug\CryptoLibrary.dll
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\bin\Debug\CryptoLibrary.pdb
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.MainForm.resources
+C:\Users\Jelena\source\repos\ZIService\ZIKlijent\obj\Debug\ZIKlijent.csproj.CopyComplete

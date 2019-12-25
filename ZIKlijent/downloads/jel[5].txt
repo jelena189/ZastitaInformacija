@@ -1,0 +1,32 @@
+ public byte[] izracunajHash(byte[] file)
+        {
+            long length = 8 * file.Length;
+            byte[] duzina = BitConverter.GetBytes(length);
+            Array.Reverse(duzina);
+            byte[] newFile = new byte[file.Length + 1];
+            file.CopyTo(newFile, 0);
+            byte prvi = 1;
+            byte drugi = 0;
+            newFile[file.Length] = prvi;
+
+            while (newFile.Length % 64 != 56)
+            {
+                int oldSize = newFile.Length;
+                Array.Resize(ref newFile, oldSize + 1);
+                newFile[oldSize] = drugi;
+            }
+            Array.Resize(ref newFile, newFile.Length + 8);
+            System.Buffer.BlockCopy(duzina, 0, newFile, newFile.Length - 8, 8);
+
+            int brBlokova = newFile.Length / 64;
+            byte[][] nizBlokova = new byte[brBlokova][];
+
+            for (int i = 0; i < brBlokova; i++)
+            {
+                nizBlokova[i] = new byte[64];
+                nizBlokova[i] = newFile.Skip(i * 64).Take(64).ToArray();
+            }
+
+            SHA1 sha1 = new CryptoLibrary.SHA1();
+            return sha1.ComputeHash(nizBlokova);
+        }

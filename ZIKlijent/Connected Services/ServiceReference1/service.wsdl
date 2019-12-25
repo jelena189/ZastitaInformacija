@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FileDetails">
+    <wsdl:part name="parameters" element="tns:FileDetails" />
+  </wsdl:message>
+  <wsdl:message name="FileDetails_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="hashValue" element="tns:hashValue" />
+  </wsdl:message>
+  <wsdl:message name="UploadReply">
+    <wsdl:part name="parameters" element="tns:UploadReply" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUploadedFilesNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUploadedFilesNames" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUploadedFilesNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUploadedFilesNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadFile">
+    <wsdl:part name="parameters" element="tns:DownloadFile" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UploadFile" name="FileDetails" message="tns:FileDetails" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UploadFileResponse" name="UploadReply" message="tns:UploadReply" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadedFilesNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUploadedFilesNames" message="tns:IService1_GetUploadedFilesNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUploadedFilesNamesResponse" message="tns:IService1_GetUploadedFilesNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DownloadFile" name="DownloadFile" message="tns:DownloadFile" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DownloadFileResponse" name="FileDetails" message="tns:FileDetails" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/IService1/UploadFile" style="document" />
+      <wsdl:input name="FileDetails">
+        <soap:header message="tns:FileDetails_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:FileDetails_Headers" part="hashValue" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadReply">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadedFilesNames">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUploadedFilesNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <soap:operation soapAction="http://tempuri.org/IService1/DownloadFile" style="document" />
+      <wsdl:input name="DownloadFile">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FileDetails">
+        <soap:header message="tns:FileDetails_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:FileDetails_Headers" part="hashValue" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/ZIService/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

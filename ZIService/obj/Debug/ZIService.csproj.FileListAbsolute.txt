@@ -1,0 +1,9 @@
+C:\Users\Jelena\source\repos\ZIService\ZIService\bin\Debug\ZIService.dll.config
+C:\Users\Jelena\source\repos\ZIService\ZIService\bin\Debug\ZIService.dll
+C:\Users\Jelena\source\repos\ZIService\ZIService\bin\Debug\ZIService.pdb
+C:\Users\Jelena\source\repos\ZIService\ZIService\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Jelena\source\repos\ZIService\ZIService\obj\Debug\ZIService.csprojAssemblyReference.cache
+C:\Users\Jelena\source\repos\ZIService\ZIService\obj\Debug\ZIService.csproj.CoreCompileInputs.cache
+C:\Users\Jelena\source\repos\ZIService\ZIService\obj\Debug\ZIService.csproj.CopyComplete
+C:\Users\Jelena\source\repos\ZIService\ZIService\obj\Debug\ZIService.dll
+C:\Users\Jelena\source\repos\ZIService\ZIService\obj\Debug\ZIService.pdb
