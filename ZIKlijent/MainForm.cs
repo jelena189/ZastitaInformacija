@@ -92,6 +92,38 @@ namespace ZIKlijent
             cfb.Kljuc = s;
         }
 
+        private void postaviBrojeve(string p, string a, string x, CFBMode cfb)
+        {
+            String[] s = new String[3];
+            if (string.IsNullOrEmpty(p) || string.IsNullOrEmpty(a) || string.IsNullOrEmpty(x))
+            {
+                MessageBox.Show("Vrednosti nisu validne.",
+                        "Obavestenje",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                return;
+            }
+            uint p1 = Convert.ToUInt32(p);
+            if (!isPrime(p1))
+            {
+                MessageBox.Show("P mora biti prost broj!",
+                        "Obavestenje",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                return;
+            }
+            uint a1 = Convert.ToUInt32(a), x1 = Convert.ToUInt32(x);
+            if (a1 >= p1 || x1>=p1)
+            {
+                MessageBox.Show("nevalidne vrednosti za a ili x!",
+                        "Obavestenje",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                return;
+            }
+            s[0] = p; s[1] = a;s[2] = x;
+            cfb.Kljucevi = s;
+        }
         public string GenerisiPad(int duzina)
         {
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
@@ -131,8 +163,8 @@ namespace ZIKlijent
             }
             else if (radioButton3.Checked == true)
             {
-                //algoritam = new ElGamal();
-                alg = 3;//checkBox3.Text;
+                algoritam = new ElGamal();
+                alg = 3;
             }
             else
             {
@@ -166,6 +198,12 @@ namespace ZIKlijent
                 cfb.Pad = pads;
                 lblPad.Text = "Random pad je generisan.";
             }
+            else
+            {
+                postaviBrojeve(txtP.Text,txtA.Text, txtX.Text,cfb);
+                if (cfb.Kljucevi == null)
+                    return;
+            }
             byte[] cryptedFile = new byte[file.Length];
             cryptedFile = cfb.Kriptuj(file);
             byte[] zaUpload = new byte[20 + file.Length];
@@ -191,6 +229,11 @@ namespace ZIKlijent
                 sacuvajPodatke(txtIV.Text, txtKljuc.Text, alg, name);
             else if (alg == 2)
                 sacuvajPodatke(txtIV.Text, pad, alg, name);
+            else
+            {
+                uint p = Convert.ToUInt32(txtP.Text), a=Convert.ToUInt32(txtA.Text),x=Convert.ToUInt32(txtX.Text);
+                sacuvajPodatke(txtIV.Text, p.ToString() + a.ToString() + x.ToString(), alg, name);
+            }
         }
 
         void sacuvajPodatke(string Iv, string Kljuc, byte Algoritam, string FileName)
@@ -274,7 +317,7 @@ namespace ZIKlijent
                     algoritam = new CryptoLibrary.OTP();
                     break;
                 case 3:
-                    // algoritam = new CryptoLibrary.ElGamal();
+                    algoritam = new CryptoLibrary.ElGamal();
                     break;
                 default:
                     MessageBox.Show("Algoritam nije selektovan!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -288,6 +331,11 @@ namespace ZIKlijent
             {
                 string[] pad = divideString(Encoding.Default.GetString(p), p.Length / 4);
                 cfb.Pad = pad;
+            }
+            else
+            {
+                //string[] keys = divideString(Encoding.Default.GetString(p), 3);
+                //cfb.Kljucevi = keys;
             }
 
             byte[] decrypted = cfb.Dekriptuj(file1);
@@ -340,7 +388,47 @@ namespace ZIKlijent
             return niz;
         }
 
+        bool isPrime(uint number)
+        {
+            if (number == 1) return false;
+            if (number == 2) return true;
 
+            var limit = Math.Ceiling(Math.Sqrt(number));
+
+            for (int i = 2; i <= limit; ++i)
+            {
+                if (number % i == 0) return false;
+            }
+            return true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            uint P=GenerisiP();
+            string Pstr = P.ToString();
+
+            var random = new Random();
+            int number = random.Next(2, (int)(P/2));
+            uint A = (uint)(number);
+            string Astr = A.ToString();
+            number = random.Next(2, (int)(P / 2));
+            uint X= (uint)(number);
+            string Xstr = X.ToString();
+            txtP.Text = Pstr;
+            txtA.Text = Astr;
+            txtX.Text = Xstr;
+        }
+        public uint GenerisiP()
+        {
+            uint p = 4294967295;
+            while (true)
+            {
+                if (isPrime(p))
+                    return p;
+                else
+                    p -= 1;
+            }
+        }
 
         public byte[] uzmiPodatke(string FileName)
         {

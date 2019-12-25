@@ -12,6 +12,7 @@ namespace CryptoLibrary
         uint[] kljuc;
         uint[] vi;
         uint[] pad=null;
+        uint[] kljucevi;
         bool validnostKljuca;
         IAlgorithm algoritam;
 
@@ -73,6 +74,29 @@ namespace CryptoLibrary
             }
         }
 
+        public string[] Kljucevi
+        {
+            get
+            {
+                if (this.kljucevi == null)
+                    return null;
+                String[] s = new String[3];
+                for (int i = 0; i < 3; i++)
+                {
+                    s[i] = kljucevi[i].ToString();
+                }
+                return s;
+            }
+            set
+            {
+                this.kljucevi = new uint[3];
+                for (int i = 0; i < 3; i++)
+                {
+                    kljucevi[i] = Convert.ToUInt32(value[i]);
+                }
+            }
+        }
+
         public String[] Kljuc
         {
             get
@@ -102,26 +126,10 @@ namespace CryptoLibrary
             }
         }
 
-      
 
         public CFBMode(IAlgorithm alg)
         {
             algoritam = alg;
-            //this.vi = new uint[2];
-            validnostKljuca = true;
-        }
-
-        public CFBMode(uint[] vi, uint[] kljuc, IAlgorithm alg)
-        {
-            algoritam = alg;
-            this.kljuc = new uint[4];
-            this.vi = new uint[2];
-            this.kljuc[0] = kljuc[0];
-            this.kljuc[1] = kljuc[1];
-            this.kljuc[2] = kljuc[2];
-            this.kljuc[3] = kljuc[3];
-            this.vi[0] = vi[0];
-            this.vi[1] = vi[1];
             validnostKljuca = true;
         }
 
@@ -202,17 +210,23 @@ namespace CryptoLibrary
 
         public uint[] setKey(int i, int duzina)
         {
-            if (this.pad == null)
+            if (this.kljuc != null)
                 return this.kljuc;
-            else if (i + 1 >= duzina)
+            else if (this.pad != null)
             {
-                uint[] partOfPad={ this.pad[i],0};
-                return partOfPad;
+                if (i + 1 >= duzina)
+                {
+                    uint[] partOfPad = { this.pad[i], 0 };
+                    return partOfPad;
+                }
+                else
+                {
+                    uint[] partOfPad = { this.pad[i], this.pad[i + 1] };
+                    return partOfPad;
+                }
             }
-            else
-            {
-                uint[] partOfPad = { this.pad[i], this.pad[i + 1] };
-                return partOfPad;
+            else {
+                return this.kljucevi;
             }
         }
 

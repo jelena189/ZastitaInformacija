@@ -16,7 +16,7 @@ namespace ZIService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Service1 : IService1
     {
-        long maxPodataka = 51200;
+        long maxPodataka = 35200;
         int chunkSize=2;
         long trenutnoPodataka = 0;
         private string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fajlovi");

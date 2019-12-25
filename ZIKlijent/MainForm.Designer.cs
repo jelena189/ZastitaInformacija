@@ -46,6 +46,13 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtP = new System.Windows.Forms.TextBox();
+            this.txtA = new System.Windows.Forms.TextBox();
+            this.txtX = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 24);
+            this.label1.Location = new System.Drawing.Point(211, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 19);
             this.label1.TabIndex = 2;
@@ -62,7 +69,7 @@
             // btnIV
             // 
             this.btnIV.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnIV.Location = new System.Drawing.Point(151, 113);
+            this.btnIV.Location = new System.Drawing.Point(140, 67);
             this.btnIV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnIV.Name = "btnIV";
             this.btnIV.Size = new System.Drawing.Size(194, 41);
@@ -73,7 +80,7 @@
             // 
             // txtIV
             // 
-            this.txtIV.Location = new System.Drawing.Point(151, 62);
+            this.txtIV.Location = new System.Drawing.Point(140, 32);
             this.txtIV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIV.Name = "txtIV";
             this.txtIV.Size = new System.Drawing.Size(194, 27);
@@ -109,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 179);
+            this.label3.Location = new System.Drawing.Point(26, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 19);
             this.label3.TabIndex = 7;
@@ -119,7 +126,7 @@
             // 
             this.btnUpload.BackColor = System.Drawing.Color.LightSalmon;
             this.btnUpload.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpload.Location = new System.Drawing.Point(151, 567);
+            this.btnUpload.Location = new System.Drawing.Point(151, 606);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(194, 41);
             this.btnUpload.TabIndex = 9;
@@ -131,7 +138,7 @@
             // 
             this.lblPad.AutoSize = true;
             this.lblPad.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPad.Location = new System.Drawing.Point(122, 173);
+            this.lblPad.Location = new System.Drawing.Point(122, 172);
             this.lblPad.Name = "lblPad";
             this.lblPad.Size = new System.Drawing.Size(36, 19);
             this.lblPad.TabIndex = 10;
@@ -152,7 +159,7 @@
             // 
             this.btnDownload.BackColor = System.Drawing.Color.LightSalmon;
             this.btnDownload.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDownload.Location = new System.Drawing.Point(32, 578);
+            this.btnDownload.Location = new System.Drawing.Point(32, 616);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(194, 40);
             this.btnDownload.TabIndex = 2;
@@ -175,7 +182,7 @@
             this.lv1.Location = new System.Drawing.Point(32, 63);
             this.lv1.MultiSelect = false;
             this.lv1.Name = "lv1";
-            this.lv1.Size = new System.Drawing.Size(544, 475);
+            this.lv1.Size = new System.Drawing.Size(544, 530);
             this.lv1.TabIndex = 0;
             this.lv1.UseCompatibleStateImageBehavior = false;
             this.lv1.View = System.Windows.Forms.View.List;
@@ -188,7 +195,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(5, 26);
+            this.radioButton1.Location = new System.Drawing.Point(5, 68);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(54, 23);
             this.radioButton1.TabIndex = 4;
@@ -200,7 +207,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(5, 173);
+            this.radioButton2.Location = new System.Drawing.Point(6, 172);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(64, 23);
             this.radioButton2.TabIndex = 1;
@@ -212,7 +219,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(6, 291);
+            this.radioButton3.Location = new System.Drawing.Point(6, 301);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(97, 23);
             this.radioButton3.TabIndex = 1;
@@ -222,6 +229,13 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.txtX);
+            this.groupBox4.Controls.Add(this.txtA);
+            this.groupBox4.Controls.Add(this.txtP);
             this.groupBox4.Controls.Add(this.btnKljuc);
             this.groupBox4.Controls.Add(this.radioButton3);
             this.groupBox4.Controls.Add(this.lblPad);
@@ -229,11 +243,70 @@
             this.groupBox4.Controls.Add(this.txtKljuc);
             this.groupBox4.Controls.Add(this.radioButton1);
             this.groupBox4.Controls.Add(this.radioButton2);
-            this.groupBox4.Location = new System.Drawing.Point(25, 201);
+            this.groupBox4.Location = new System.Drawing.Point(25, 156);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(408, 360);
+            this.groupBox4.Size = new System.Drawing.Size(408, 427);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
+            // 
+            // txtP
+            // 
+            this.txtP.Location = new System.Drawing.Point(244, 256);
+            this.txtP.Name = "txtP";
+            this.txtP.Size = new System.Drawing.Size(130, 27);
+            this.txtP.TabIndex = 11;
+            // 
+            // txtA
+            // 
+            this.txtA.Location = new System.Drawing.Point(244, 295);
+            this.txtA.Name = "txtA";
+            this.txtA.Size = new System.Drawing.Size(130, 27);
+            this.txtA.TabIndex = 12;
+            // 
+            // txtX
+            // 
+            this.txtX.Location = new System.Drawing.Point(244, 335);
+            this.txtX.Name = "txtX";
+            this.txtX.Size = new System.Drawing.Size(130, 27);
+            this.txtX.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(152, 256);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 19);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "P (moduo):";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(213, 295);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 19);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "a:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(111, 335);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 19);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "x (privatni kljuc):";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.PeachPuff;
+            this.button1.Location = new System.Drawing.Point(217, 379);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(157, 33);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Generisi vrednosti";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -281,6 +354,13 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtX;
+        private System.Windows.Forms.TextBox txtA;
+        private System.Windows.Forms.TextBox txtP;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
     }
 }
 
