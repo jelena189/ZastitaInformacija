@@ -71,7 +71,14 @@ namespace ZIKlijent
                         MessageBoxIcon.Information);
                 return;
             }
-
+            if(Encoding.ASCII.GetBytes(iv).ToArray().Length!=8)
+            {
+                MessageBox.Show("Vektor VI mora biti 8b.",
+                        "Obavestenje",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                return;
+            }
             String[] s = new String[2];
             s = divideString(iv, 2);
             cfb.VI = s;
@@ -83,6 +90,14 @@ namespace ZIKlijent
             if (string.IsNullOrEmpty(kljuc))
             {
                 MessageBox.Show("Kljuc nije validan.",
+                        "Obavestenje",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                return;
+            }
+            if (Encoding.ASCII.GetBytes(kljuc).ToArray().Length != 16)
+            {
+                MessageBox.Show("KLjuc mora biti 16b.",
                         "Obavestenje",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);

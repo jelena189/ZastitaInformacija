@@ -83,7 +83,6 @@ namespace ZIService
                         if (bytesRead == 0)
                             break;
 
-                        //When last block is uploaded
                         if (bytesRead < 1024 * chunkSize)
                         {
                             var temp = new byte[bytesRead];

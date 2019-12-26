@@ -22,10 +22,10 @@ namespace CryptoLibrary
             get { return algoritam; }
         }
 
-        public bool ValidnostKljuca
-        {
-            get { return validnostKljuca; }
-        }
+        //public bool ValidnostKljuca
+        //{
+        //    get { return validnostKljuca; }
+        //}
         public String[] VI
         {
             get
@@ -42,9 +42,13 @@ namespace CryptoLibrary
                 this.vi = new uint[2];
                 if (value.Length != 2)
                 {
-                    validnostKljuca = false;
                     return;
                 }
+                //for (int j = 0; j < 2; j++)
+                //{
+                //    if (value[j] == null)
+                //        return;
+                //}
                 byte[] s0 = Encoding.ASCII.GetBytes(value[0]);
                 byte[] s1= Encoding.ASCII.GetBytes(value[1]);
                 vi[0]=BitConverter.ToUInt32(s0,0);
@@ -89,6 +93,11 @@ namespace CryptoLibrary
             }
             set
             {
+                //for (int j = 0; j < 3; j++)
+                //{
+                //    if (value[j] == null)
+                //        return;
+                //}
                 this.kljucevi = new uint[3];
                 for (int i = 0; i < 3; i++)
                 {
@@ -112,11 +121,11 @@ namespace CryptoLibrary
             }
             set
             {
-                if (value.Length != 4)
-                {
-                    validnostKljuca = false;
-                    return;
-                }
+                //for (int j = 0; j < 4; j++)
+                //{
+                //    if (value[j] == null)
+                //        return;
+                //}
                 this.kljuc = new uint[4];
                 for (int i = 0; i < 4; i++)
                 {
