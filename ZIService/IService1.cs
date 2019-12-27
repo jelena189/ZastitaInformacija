@@ -35,12 +35,12 @@ namespace ZIService
     [MessageContract]
     public class FileDetails : IDisposable
     {
-
-        [MessageHeader(MustUnderstand = true)] public byte[] hashValue;
-
         [MessageHeader(MustUnderstand = true)] public string FileName;
 
         [MessageBodyMember(Order = 1)] public System.IO.Stream FileStreamReader;
+        //[MessageHeader(MustUnderstand = true)] public byte[] hashValue;
+
+
 
         public void Dispose()
         {

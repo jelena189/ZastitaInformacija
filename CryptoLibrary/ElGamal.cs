@@ -8,7 +8,7 @@ namespace CryptoLibrary
 {
     public class ElGamal : IAlgorithm
     {
-        public uint[] Dekriptuj(uint[] iv, uint[] k)//iv je 4 uinta
+        public uint[] Dekriptuj(uint[] iv, uint[] k)
         {
             uint[] result = new uint[2];
             uint p = k[0];
@@ -22,10 +22,10 @@ namespace CryptoLibrary
 
         public uint[] Kriptuj(uint[] iv, uint[] key)//k 
         {
-            uint p = key[0];//moduo, prost broj
-            uint a = key[1];//uzajamno prost sa p
-            uint x = key[2];//privatni kljuc, uz prost sa p
-            uint y = (uint)Math.Pow(a, x) % p;// y = a x (mod p).
+            uint p = key[0];                     //moduo, prost broj
+            uint a = key[1];                     //uzajamno prost sa p
+            uint x = key[2];                     //privatni kljuc, uz prost sa p
+            uint y = (uint)Math.Pow(a, x) % p;
             uint[] result = new uint[4];
             for (int i = 0; i < 2; i++)
             {
@@ -41,14 +41,6 @@ namespace CryptoLibrary
             return result;
         }
 
-        //public uint Pow(uint num, uint pow)
-        //{
-        //    uint result = 1;
-        //    for (int i = 1; i <= pow; ++i)
-        //    {
-        //        result *= num;
-        //    }
-        //    return result;
-        //}
+        
     }
 }

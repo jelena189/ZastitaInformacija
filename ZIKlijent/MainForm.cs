@@ -228,7 +228,7 @@ namespace ZIKlijent
 
             using (var stream = new FileStream(@".\\Kriptovano\\" + fileForCryptName + fileExtension, FileMode.Open, FileAccess.Read))
             {
-                bool resultOfUpload = proxy.UploadFile(fileForCryptName + fileExtension, hash, stream);
+                bool resultOfUpload = proxy.UploadFile(fileForCryptName + fileExtension, stream);
 
                 if (resultOfUpload == true)
                     MessageBox.Show("Fajl je uploadovan!", "Successfull upload!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -288,22 +288,33 @@ namespace ZIKlijent
 
             byte[] file = null;
             byte[] buffer = new byte[1024 * chunkSize];
-            Stream inputStream = null;
-            proxy.DownloadFile(ref localFileName, out inputStream);
+            //string fn;
+            //Stream inputStream = null;
+            System.IO.Stream inputStream;
+            //proxy.DownloadFile(ref localFileName, out inputStream);
+            string fn = localFileName;
+            inputStream = proxy.DownloadFile(ref fn);
+            
+            
             int offset = 0;
             do
             {
                 var bytesRead = inputStream.Read(buffer, 0, buffer.Length);
+                Array.Resize(ref buffer, bytesRead);
                 if (bytesRead == 0) break;
                 //Then it's last block
-                if (bytesRead < 1024 * chunkSize)
-                {
-                    var temp = new byte[bytesRead];
-                    Array.Copy(buffer, temp, bytesRead);
-                    buffer = temp;
-                }
+                //if (bytesRead < 1024 * chunkSize)
+                //{
+                //    var temp = new byte[bytesRead];
+                //    Array.Copy(buffer, temp, bytesRead);
+                //    buffer = temp;
+                //}
                 if (file == null)
-                    file = buffer;
+                {
+                    file = new byte[buffer.Length];
+                    Array.Copy(buffer, file, buffer.Length);
+                }
+                    
                 else
                 {
                     offset = file.Length;
@@ -314,7 +325,7 @@ namespace ZIKlijent
 
             byte[] oldHash = new byte[20];
             oldHash = file.Take(20).ToArray();
-            byte[] file1 = file.Skip(20).ToArray();
+            byte[] file1 = file.Skip(20).ToArray(); 
 
             byte[] podaci = uzmiPodatke(localFileName);
             string iv = System.Text.Encoding.UTF8.GetString(podaci.Take(8).ToArray());

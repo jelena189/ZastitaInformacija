@@ -45,18 +45,14 @@ namespace ZIKlijent.ServiceReference1 {
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public string FileName;
         
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public byte[] hashValue;
-        
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         public System.IO.Stream FileStreamReader;
         
         public FileDetails() {
         }
         
-        public FileDetails(string FileName, byte[] hashValue, System.IO.Stream FileStreamReader) {
+        public FileDetails(string FileName, System.IO.Stream FileStreamReader) {
             this.FileName = FileName;
-            this.hashValue = hashValue;
             this.FileStreamReader = FileStreamReader;
         }
     }
@@ -127,10 +123,9 @@ namespace ZIKlijent.ServiceReference1 {
             return base.Channel.UploadFile(request);
         }
         
-        public bool UploadFile(string FileName, byte[] hashValue, System.IO.Stream FileStreamReader) {
+        public bool UploadFile(string FileName, System.IO.Stream FileStreamReader) {
             ZIKlijent.ServiceReference1.FileDetails inValue = new ZIKlijent.ServiceReference1.FileDetails();
             inValue.FileName = FileName;
-            inValue.hashValue = hashValue;
             inValue.FileStreamReader = FileStreamReader;
             ZIKlijent.ServiceReference1.UploadReply retVal = ((ZIKlijent.ServiceReference1.IService1)(this)).UploadFile(inValue);
             return retVal.UploadSuccess;
@@ -141,10 +136,9 @@ namespace ZIKlijent.ServiceReference1 {
             return base.Channel.UploadFileAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ZIKlijent.ServiceReference1.UploadReply> UploadFileAsync(string FileName, byte[] hashValue, System.IO.Stream FileStreamReader) {
+        public System.Threading.Tasks.Task<ZIKlijent.ServiceReference1.UploadReply> UploadFileAsync(string FileName, System.IO.Stream FileStreamReader) {
             ZIKlijent.ServiceReference1.FileDetails inValue = new ZIKlijent.ServiceReference1.FileDetails();
             inValue.FileName = FileName;
-            inValue.hashValue = hashValue;
             inValue.FileStreamReader = FileStreamReader;
             return ((ZIKlijent.ServiceReference1.IService1)(this)).UploadFileAsync(inValue);
         }
@@ -162,13 +156,12 @@ namespace ZIKlijent.ServiceReference1 {
             return base.Channel.DownloadFile(request);
         }
         
-        public byte[] DownloadFile(ref string FileName, out System.IO.Stream FileStreamReader) {
+        public System.IO.Stream DownloadFile(ref string FileName) {
             ZIKlijent.ServiceReference1.DownloadFile inValue = new ZIKlijent.ServiceReference1.DownloadFile();
             inValue.FileName = FileName;
             ZIKlijent.ServiceReference1.FileDetails retVal = ((ZIKlijent.ServiceReference1.IService1)(this)).DownloadFile(inValue);
             FileName = retVal.FileName;
-            FileStreamReader = retVal.FileStreamReader;
-            return retVal.hashValue;
+            return retVal.FileStreamReader;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
